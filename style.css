@@ -1,586 +1,1008 @@
-/* Importa fonte Roboto do Google Fonts */
+/* Importa a fonte Roboto do Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap');
 
-/* Variáveis CSS para cores e estilos usados no site */
+/* Define variáveis CSS para cores e estilos */
 :root {
+    /* Define a cor principal com tom dourado */
     --main-color: #d3ad7f;
+    /* Define a cor preta escura */
     --black: #13131a;
+    /* Define o fundo quase preto */
     --bg: #010103;
+    /* Define uma borda fina semi-transparente */
     --border: .1rem solid rgba(255,255,255,.3);
 }
 
-/* Reset básico e estilo global para todos os elementos */
+/* Aplica estilo global para todos os elementos */
 * {
+    /* Usa a fonte Roboto para todos os textos */
     font-family: 'Roboto', sans-serif;
-    margin: 0; padding: 0;
+    /* Remove margem e padding padrão */
+    margin: 0; 
+    padding: 0;
+    /* Define box-sizing para incluir padding e borda no tamanho total */
     box-sizing: border-box;
+    /* Remove o contorno padrão ao focar no elemento */
     outline: none;
+    /* Remove bordas padrão */
     border: none;
+    /* Remove sublinhado de links */
     text-decoration: none;
-    text-transform: capitalize; /* Primeira letra maiúscula */
+    /* Coloca a primeira letra de cada palavra em maiúscula */
+    text-transform: capitalize;
+    /* Aplica transição suave em 0.2s para propriedades animáveis */
     transition: .2s linear;
 }
 
-/* HTML básico */
+/* Estilos para o elemento html */
 html {
-    font-size: 62.5%; /* Facilita usar rem (1rem = 10px) */
-    overflow-x: hidden; /* Evita scroll horizontal */
-    scroll-padding-top: 9rem; /* Espaço ao usar scroll suave para âncoras */
-    scroll-behavior: smooth; /* Rolagem suave */
+    /* Define tamanho base da fonte para facilitar uso de rem (1rem = 10px) */
+    font-size: 62.5%;
+    /* Evita barra de rolagem horizontal */
+    overflow-x: hidden;
+    /* Espaço extra no topo ao rolar para âncoras */
+    scroll-padding-top: 9rem;
+    /* Habilita rolagem suave */
+    scroll-behavior: smooth;
 }
 
-/* Estilo da barra de rolagem no Chrome/Webkit */
+/* Estilização da barra de rolagem para navegadores baseados em Webkit */
 html::-webkit-scrollbar {
+    /* Define a largura da barra de rolagem */
     width: .8rem;
 }
+
+/* Estilo da parte de trás da barra de rolagem */
 html::-webkit-scrollbar-track {
+    /* Define o fundo transparente para a trilha da barra */
     background: transparent;
 }
+
+/* Estilo do "polegar" da barra de rolagem */
 html::-webkit-scrollbar-thumb {
+    /* Define cor branca para a parte que se move */
     background: #fff;
+    /* Define borda arredondada do polegar */
     border-radius: 5rem;
 }
 
-/* Fundo do corpo */
+/* Estilo para o corpo da página */
 body {
+    /* Aplica a cor de fundo definida na variável --bg */
     background: var(--bg);
 }
 
-/* Padding padrão para seções */
+/* Padding padrão para todas as seções */
 section {
+    /* Aplica 2rem de padding vertical e 7% horizontal */
     padding: 2rem 7%;
 }
 
-/* Estilo do título das seções */
+/* Estiliza o título das seções */
 .heading {
+    /* Centraliza o texto */
     text-align: center;
+    /* Cor branca para o texto */
     color: #fff;
+    /* Texto em letras maiúsculas */
     text-transform: uppercase;
+    /* Espaçamento inferior de 3.5rem */
     padding-bottom: 3.5rem;
+    /* Tamanho da fonte 4rem */
     font-size: 4rem;
 }
+
+/* Estiliza spans dentro do título */
 .heading span {
+    /* Aplica a cor principal dourada */
     color: var(--main-color);
+    /* Texto em letras maiúsculas */
     text-transform: uppercase;
 }
 
-/* Botões padrão */
+/* Estilo padrão para botões */
 .btn {
+    /* Margem superior de 1rem */
     margin-top: 1rem;
+    /* Exibe como elemento inline-bloco */
     display: inline-block;
+    /* Padding vertical 0.9rem e horizontal 3rem */
     padding: .9rem 3rem;
+    /* Tamanho da fonte 1.7rem */
     font-size: 1.7rem;
+    /* Cor do texto branca */
     color: #fff;
+    /* Fundo com cor principal */
     background: var(--main-color);
+    /* Cursor muda para ponteiro ao passar o mouse */
     cursor: pointer;
 }
+
+/* Estilo para botão ao passar mouse */
 .btn:hover {
+    /* Aumenta espaçamento entre letras */
     letter-spacing: .2rem;
 }
 
-/* Header fixo no topo */
+/* Estilo para o cabeçalho fixo */
 .header {
+    /* Fundo quase preto */
     background: var(--bg);
+    /* Usando flexbox para alinhar itens */
     display: flex;
+    /* Alinha itens verticalmente no centro */
     align-items: center;
+    /* Espaço entre itens para preencher horizontal */
     justify-content: space-between;
+    /* Padding 1.5rem vertical e 7% horizontal */
     padding: 1.5rem 7%;
+    /* Borda inferior fina translúcida */
     border-bottom: var(--border);
+    /* Fixa o header no topo da tela */
     position: fixed;
     top: 0; left: 0; right: 0;
+    /* Garante que fique sobre outros elementos */
     z-index: 1000;
 }
 
-/* Logo na header */
+/* Estilo para logo dentro do header */
 .header .logo img {
+    /* Define altura da imagem da logo */
     height: 6rem;
 }
 
-/* Links do menu */
+/* Estiliza links dentro da navbar do header */
 .header .navbar a {
+    /* Margem lateral 1rem */
     margin: 0 1rem;
+    /* Tamanho da fonte 1.6rem */
     font-size: 1.6rem;
+    /* Cor branca para texto */
     color: #fff;
 }
+
+/* Estilo para links do menu ao passar mouse */
 .header .navbar a:hover {
+    /* Cor dourada */
     color: var(--main-color);
+    /* Borda inferior fina dourada */
     border-bottom: .1rem solid var(--main-color);
+    /* Espaçamento interno inferior */
     padding-bottom: .5rem;
 }
 
-/* Ícones no header (lupa, carrinho, etc) */
+/* Estilo para ícones no header (ex: lupa, carrinho) */
 .header .icons div {
+    /* Cor branca */
     color: #fff;
+    /* Cursor pointer */
     cursor: pointer;
+    /* Tamanho da fonte para ícones */
     font-size: 2.5rem;
+    /* Margem à esquerda para espaçamento */
     margin-left: 2rem;
 }
+
+/* Ícones do header ao passar mouse */
 .header .icons div:hover {
+    /* Cor dourada */
     color: var(--main-color);
 }
 
-/* Botão menu para mobile (invisível no desktop) */
+/* Botão menu mobile escondido no desktop */
 #menu-btn {
     display: none;
 }
 
-/* Formulário de busca (oculto por padrão) */
+/* Formulário de busca no header, inicialmente oculto */
 .header .search-form {
+    /* Posicionamento absoluto */
     position: absolute;
-    top: 115%; right: 7%;
+    /* Fica logo abaixo do header */
+    top: 115%; 
+    right: 7%;
+    /* Fundo branco */
     background: #fff;
+    /* Largura e altura fixas */
     width: 50rem;
     height: 5rem;
+    /* Flexbox para alinhar conteúdo */
     display: flex;
     align-items: center;
+    /* Inicialmente invisível verticalmente (escala Y zero) */
     transform: scaleY(0);
+    /* Origem da transformação no topo */
     transform-origin: top;
+    /* Transição suave para transformação */
     transition: transform 0.3s ease;
 }
+
+/* Quando a classe active é adicionada, o form aparece */
 .header .search-form.active {
+    /* Escala vertical volta ao normal */
     transform: scaleY(1);
 }
+
+/* Estilo para input dentro do form de busca */
 .header .search-form input {
+    /* Altura e largura 100% do container */
     height: 100%;
     width: 100%;
+    /* Tamanho da fonte */
     font-size: 1.6rem;
+    /* Cor do texto preto */
     color: var(--black);
+    /* Espaçamento interno */
     padding: 1rem;
+    /* Remove capitalização */
     text-transform: none;
 }
+
+/* Label do form de busca */
 .header .search-form label {
+    /* Cursor pointer para clicar */
     cursor: pointer;
+    /* Fonte maior para o ícone */
     font-size: 2.2rem;
+    /* Margem direita */
     margin-right: 1.5rem;
+    /* Cor preta */
     color: var(--black);
 }
+
+/* Label hover muda cor */
 .header .search-form label:hover {
     color: var(--main-color);
 }
 
-/* Container do carrinho (oculto à direita fora da tela) */
+/* Container do carrinho - inicialmente fora da tela à direita */
 .header .cart-items-container {
+    /* Posicionamento absoluto */
     position: absolute;
-    top: 100%; right: -100%;
+    /* Fica logo abaixo do header */
+    top: 100%; 
+    /* Fora da tela para a direita */
+    right: -100%;
+    /* Altura da tela menos header */
     height: calc(100vh - 9.5rem);
+    /* Largura fixa */
     width: 35rem;
+    /* Fundo branco */
     background: #fff;
+    /* Padding horizontal */
     padding: 0 1.5rem;
-    overflow-y: auto; /* Scroll interno se itens forem muitos */
+    /* Habilita scroll interno se conteúdo passar */
+    overflow-y: auto;
+    /* Sombra para dar profundidade */
     box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+    /* Transição para movimentar da direita */
     transition: right 0.3s ease;
 }
+
+/* Quando ativo, carrinho aparece à direita */
 .header .cart-items-container.active {
     right: 0;
 }
 
-/* Itens dentro do carrinho */
+/* Cada item do carrinho */
 .header .cart-items-container .cart-item {
+    /* Posição relativa para posicionar ícone remover */
     position: relative;
+    /* Margem vertical */
     margin: 2rem 0;
+    /* Flexbox para alinhar horizontalmente */
     display: flex;
+    /* Centraliza verticalmente */
     align-items: center;
+    /* Espaço entre itens */
     gap: 1.5rem;
 }
 
-/* Botão para remover item do carrinho */
+/* Ícone para remover item */
 .header .cart-items-container .cart-item .fa-times {
+    /* Posição absoluta no canto superior direito */
     position: absolute;
-    top: 1rem; right: 1rem;
+    top: 1rem; 
+    right: 1rem;
+    /* Tamanho da fonte */
     font-size: 2rem;
+    /* Cursor pointer */
     cursor: pointer;
+    /* Cor preta */
     color: var(--black);
+    /* Transição suave para cor */
     transition: color 0.3s ease;
 }
+
+/* Ícone remover hover */
 .header .cart-items-container .cart-item .fa-times:hover {
     color: var(--main-color);
 }
 
 /* Imagem do produto no carrinho */
 .header .cart-items-container .cart-item img {
+    /* Altura fixa */
     height: 7rem;
 }
 
 /* Nome do produto no carrinho */
 .header .cart-items-container .cart-item .content h3 {
+    /* Tamanho da fonte */
     font-size: 2rem;
+    /* Cor preta */
     color: var(--black);
+    /* Espaço inferior */
     padding-bottom: .5rem;
 }
 
 /* Preço do produto no carrinho */
 .header .cart-items-container .cart-item .content .price {
+    /* Tamanho da fonte menor */
     font-size: 1.5rem;
+    /* Cor dourada */
     color: var(--main-color);
 }
 
-/* Botão de finalizar compra no carrinho */
+/* Botão finalizar compra no carrinho */
 .header .cart-items-container .btn {
+    /* Largura total do container */
     width: 100%;
+    /* Centraliza texto */
     text-align: center;
+    /* Fundo dourado */
     background: var(--main-color);
+    /* Cor branca para texto */
     color: #fff;
+    /* Fonte maior */
     font-size: 1.8rem;
+    /* Padding vertical */
     padding: 1rem 0;
+    /* Bordas arredondadas */
     border-radius: 0.4rem;
+    /* Cursor pointer */
     cursor: pointer;
 }
+
+/* Hover do botão finalizar */
 .header .cart-items-container .btn:hover {
+    /* Cor dourada mais escura */
     background: #b89260;
 }
 
-/* Estilo da seção Home */
+/* Seção Home */
 .home {
+    /* Altura mínima igual a tela */
     min-height: 100vh;
+    /* Flexbox para centralizar conteúdo vertical */
     display: flex;
     align-items: center;
+    /* Fundo com imagem */
     background: url(img/home-img.jpeg) no-repeat;
+    /* Ajusta tamanho do fundo */
     background-size: cover;
+    /* Centraliza a imagem no centro */
     background-position: center;
 }
+
+/* Container do conteúdo home */
 .home .content {
+    /* Largura máxima do conteúdo */
     max-width: 60rem;
 }
+
+/* Título da home */
 .home .content h3 {
+    /* Tamanho grande da fonte */
     font-size: 6rem;
+    /* Texto em maiúsculas */
     text-transform: uppercase;
+    /* Cor branca */
     color: #fff;
 }
+
+/* Parágrafo da home */
 .home .content p {
+    /* Fonte média */
     font-size: 2rem;
+    /* Fonte leve */
     font-weight: lighter;
+    /* Espaçamento entre linhas */
     line-height: 1.8;
+    /* Padding vertical */
     padding: 1rem 0;
+    /* Cor branca suave */
     color: #eee;
 }
 
 /* Seção Sobre */
 .about .row {
+    /* Flexbox para alinhamento horizontal */
     display: flex;
+    /* Alinha verticalmente no centro */
     align-items: center;
+    /* Fundo preto escuro */
     background: var(--black);
+    /* Permite quebra de linha */
     flex-wrap: wrap;
 }
+
+/* Coluna da imagem */
 .about .row .img {
+    /* Flexível, ocupa 45rem */
     flex: 1 1 45rem;
 }
+
+/* Imagem ocupa toda largura */
 .about .row .img img {
     width: 100%;
 }
+
+/* Coluna do conteúdo */
 .about .row .content {
+    /* Flexível, ocupa 45rem */
     flex: 1 1 45rem;
+    /* Padding interno */
     padding: 2rem;
 }
+
+/* Título do conteúdo */
 .about .row .content h3 {
+    /* Fonte maior */
     font-size: 3rem;
+    /* Cor branca */
     color: #fff;
 }
+
+/* Parágrafo do conteúdo */
 .about .row .content p {
+    /* Fonte média */
     font-size: 1.6rem;
+    /* Cor cinza clara */
     color: #ccc;
+    /* Padding vertical */
     padding: 1rem 0;
+    /* Espaçamento entre linhas */
     line-height: 1.8;
 }
 
 /* Menu - grade de produtos */
 .menu .box-container {
+    /* Grid layout automático */
     display: grid;
+    /* Colunas automáticas com tamanho mínimo 30rem */
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    /* Espaçamento entre elementos */
     gap: 1.5rem;
 }
+
+/* Caixa individual do menu */
 .menu .box-container .box {
+    /* Padding grande */
     padding: 5rem;
+    /* Texto centralizado */
     text-align: center;
+    /* Borda fina translúcida */
     border: var(--border);
 }
+
+/* Imagem do produto no menu */
 .menu .box-container .box img {
+    /* Altura da imagem */
     height: 10rem;
+    border-radius: 20px;   /* <-- bordas arredondadas adicionadas */
+    object-fit: cover;     /* <-- mantém imagem preenchendo bem */
 }
+
+/* Nome do produto no menu */
 .menu .box-container .box h3 {
+    /* Cor branca */
     color: #fff;
+    /* Fonte média */
     font-size: 2rem;
+    /* Espaçamento vertical */
     padding: 1rem 0;
 }
+
+/* Preço do produto no menu */
 .menu .box-container .box .price {
+    /* Cor branca */
     color: #fff;
+    /* Fonte maior */
     font-size: 2.5rem;
+    /* Espaçamento vertical */
     padding: .5rem 0;
 }
+
+/* Preço riscado */
 .menu .box-container .box .price span {
+    /* Fonte menor */
     font-size: 1.5rem;
+    /* Texto riscado */
     text-decoration: line-through;
+    /* Fonte leve */
     font-weight: lighter;
 }
+
+/* Efeito ao passar mouse na caixa */
 .menu .box-container .box:hover {
+    /* Fundo branco */
     background: #fff;
 }
+
+/* Cores dos elementos da caixa no hover */
 .menu .box-container .box:hover > * {
+    /* Texto preto */
     color: var(--black);
 }
 
-/* Produtos listados */
+/* Produtos listados (similar ao menu) */
 .products .box-container {
+    /* Grid layout */
     display: grid;
+    /* Colunas automáticas */
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    /* Espaçamento */
     gap: 1.5rem;
 }
+
+/* Caixa de produto */
 .products .box-container .box {
+    /* Texto centralizado */
     text-align: center;
+    /* Borda fina translúcida */
     border: var(--border);
+    /* Padding interno */
     padding: 2rem;
 }
+
+/* Ícones de ação (ex: adicionar, favorito) */
 .products .box-container .box .icons a {
+    /* Tamanho quadrado */
     height: 5rem;
     width: 5rem;
+    /* Linha de base para centralizar ícone */
     line-height: 5rem;
+    /* Fonte maior */
     font-size: 2rem;
+    /* Borda fina */
     border: var(--border);
+    /* Cor branca */
     color: #fff;
+    /* Margem pequena */
     margin: .3rem;
+    /* Cursor pointer */
     cursor: pointer;
 }
+
+/* Hover dos ícones */
 .products .box-container .box .icons a:hover {
+    /* Fundo dourado */
     background: var(--main-color);
 }
+
+/* Container da imagem do produto */
 .products .box-container .box .image {
+    /* Padding vertical */
     padding: 2.5rem 0;
 }
+
+/* Imagem do produto */
 .products .box-container .box .image img {
+    /* Altura fixa grande */
     height: 25rem;
 }
+
+/* Nome do produto */
 .products .box-container .box .content h3 {
+    /* Cor branca */
     color: #fff;
+    /* Fonte grande */
     font-size: 2.5rem;
 }
+
+/* Container das estrelas de avaliação */
 .products .box-container .box .content .stars {
+    /* Padding */
     padding: 1.5rem;
 }
+
+/* Estrelas (ícones) */
 .products .box-container .box .content .stars i {
+    /* Tamanho da fonte */
     font-size: 1.7rem;
+    /* Cor dourada */
     color: var(--main-color);
 }
+
+/* Preço do produto */
 .products .box-container .box .content .price {
+    /* Cor branca */
     color: #fff;
+    /* Fonte grande */
     font-size: 2.5rem;
 }
+
+/* Preço riscado */
 .products .box-container .box .content .price span {
+    /* Texto riscado */
     text-decoration: line-through;
+    /* Fonte leve */
     font-weight: lighter;
+    /* Fonte menor */
     font-size: 1.5rem;
 }
 
 /* Avaliações */
 .review .box-container {
+    /* Grid layout */
     display: grid;
+    /* Colunas automáticas */
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    /* Espaçamento */
     gap: 1.5rem;
 }
+
+/* Caixa de avaliação */
 .review .box-container .box {
+    /* Borda fina */
     border: var(--border);
+    /* Texto centralizado */
     text-align: center;
+    /* Padding */
     padding: 3rem 2rem;
 }
+
+/* Parágrafo da avaliação */
 .review .box-container .box p {
+    /* Fonte média */
     font-size: 1.5rem;
+    /* Espaçamento entre linhas */
     line-height: 1.8;
+    /* Cor cinza */
     color: #ccc;
+    /* Padding vertical */
     padding: 2rem 0;
 }
+
+/* Imagem do usuário */
 .review .box-container .box .user {
+    /* Altura e largura quadrada */
     height: 7rem;
     width: 7rem;
+    /* Bordas arredondadas em círculo */
     border-radius: 50%;
+    /* Ajusta para cobrir container */
     object-fit: cover;
 }
+
+/* Nome do usuário */
 .review .box-container .box h3 {
+    /* Padding vertical */
     padding: 1rem 0;
+    /* Fonte média */
     font-size: 2rem;
+    /* Cor branca */
     color: #fff;
 }
+
+/* Estrelas da avaliação */
 .review .box-container .box .stars i {
+    /* Tamanho da fonte */
     font-size: 1.5rem;
+    /* Cor dourada */
     color: var(--main-color);
 }
 
 /* Contato */
 .contact .row {
+    /* Flexbox */
     display: flex;
+    /* Fundo preto */
     background: var(--black);
+    /* Permite quebra de linha */
     flex-wrap: wrap;
+    /* Espaçamento */
     gap: 1rem;
 }
+
+/* Mapa */
 .contact .row .map {
+    /* Flexível ocupando 45rem */
     flex: 1 1 45rem;
+    /* Largura total */
     width: 100%;
+    /* Cobre container */
     object-fit: cover;
 }
+
+/* Formulário */
 .contact .row form {
+    /* Flexível ocupando 45rem */
     flex: 1 1 45rem;
+    /* Padding interno */
     padding: 5rem 2rem;
+    /* Texto centralizado */
     text-align: center;
 }
+
+/* Título do formulário */
 .contact .row form h3 {
+    /* Texto maiúsculo */
     text-transform: uppercase;
+    /* Fonte maior */
     font-size: 3.5rem;
+    /* Cor branca */
     color: #fff;
 }
+
+/* Caixa de input */
 .contact .row form .inputBox {
+    /* Flexbox */
     display: flex;
+    /* Alinha verticalmente */
     align-items: center;
+    /* Margem superior e inferior */
     margin-top: 2rem;
     margin-bottom: 2rem;
+    /* Fundo escuro */
     background: var(--bg);
+    /* Borda fina */
     border: var(--border);
 }
+
+/* Ícone dentro da inputBox */
 .contact .row form .inputBox span {
+    /* Cor branca */
     color: #fff;
+    /* Fonte maior */
     font-size: 2rem;
+    /* Padding à esquerda */
     padding-left: 2rem;
 }
+
+/* Input dentro da inputBox */
 .contact .row form .inputBox input {
+    /* Largura total */
     width: 100%;
+    /* Padding interno */
     padding: 2rem;
+    /* Fonte média */
     font-size: 1.7rem;
+    /* Cor branca */
     color: #fff;
+    /* Sem transformação de texto */
     text-transform: none;
+    /* Fundo transparente */
     background: none;
 }
 
+
+
+
+
 /* Blog */
 .blogs .box-container {
+    /* Grid layout */
     display: grid;
+    /* Colunas automáticas */
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    /* Espaçamento */
     gap: 1.5rem;
 }
+
+/* Caixa de blog */
 .blogs .box-container .box {
+    /* Borda fina */
     border: var(--border);
 }
+
+/* Container da imagem */
 .blogs .box-container .box .image {
+    /* Altura fixa */
     height: 25rem;
+    /* Esconde o que ultrapassar */
     overflow: hidden;
+    /* Largura total */
     width: 100%;
 }
+
+/* Imagem do blog */
 .blogs .box-container .box .image img {
+    /* Altura total do container */
     height: 100%;
+    /* Cobre o container */
     object-fit: cover;
+    /* Largura total */
     width: 100%;
+    /* Transição para zoom */
     transition: transform 0.3s ease;
 }
+
+/* Zoom da imagem ao passar mouse */
 .blogs .box-container .box:hover .image img {
     transform: scale(1.2);
 }
+
+/* Conteúdo do blog */
 .blogs .box-container .box .content {
+    /* Padding */
     padding: 2rem;
 }
+
+/* Título do post */
 .blogs .box-container .box .content .title {
+    /* Fonte grande */
     font-size: 2.5rem;
+    /* Espaçamento entre linhas */
     line-height: 1.5;
+    /* Cor branca */
     color: #fff;
 }
+
+/* Título do post hover */
 .blogs .box-container .box .content .title:hover {
     color: var(--main-color);
 }
+
+/* Data do post */
 .blogs .box-container .box .content span {
+    /* Cor dourada */
     color: var(--main-color);
+    /* Exibe em bloco */
     display: block;
+    /* Padding superior */
     padding-top: 1rem;
+    /* Fonte média */
     font-size: 2rem;
 }
+
+/* Parágrafo do post */
 .blogs .box-container .box .content p {
+    /* Fonte média */
     font-size: 1.6rem;
+    /* Espaçamento entre linhas */
     line-height: 1.8;
+    /* Cor cinza clara */
     color: #ccc;
+    /* Padding vertical */
     padding: 1rem 0;
 }
 
 /* Footer */
 .footer {
+    /* Fundo preto */
     background: var(--black);
+    /* Texto centralizado */
     text-align: center;
 }
+
+/* Área de compartilhamento */
 .footer .share {
+    /* Padding vertical */
     padding: 1rem 0;
 }
+
+/* Ícones de compartilhamento */
 .footer .share a {
+    /* Tamanho quadrado */
     height: 5rem;
     width: 5rem;
+    /* Centraliza ícone vertical */
     line-height: 5rem;
+    /* Fonte grande */
     font-size: 2rem;
+    /* Cor branca */
     color: #fff;
+    /* Borda fina */
     border: var(--border);
+    /* Margem pequena */
     margin: .3rem;
+    /* Bordas arredondadas */
     border-radius: 50%;
+    /* Cursor pointer */
     cursor: pointer;
 }
+
+/* Hover dos ícones de compartilhamento */
 .footer .share a:hover {
     background-color: var(--main-color);
 }
+
+/* Links no footer */
 .footer .links {
+    /* Flexbox para centralizar */
     display: flex;
     justify-content: center;
+    /* Permite quebra de linha */
     flex-wrap: wrap;
+    /* Padding vertical */
     padding: 2rem 0;
+    /* Espaçamento entre links */
     gap: 1rem;
 }
+
+/* Cada link do footer */
 .footer .links a {
+    /* Padding */
     padding: .7rem 2rem;
+    /* Cor branca */
     color: #fff;
+    /* Borda fina */
     border: var(--border);
+    /* Fonte grande */
     font-size: 2rem;
 }
+
+/* Hover dos links do footer */
 .footer .links a:hover {
     background: var(--main-color);
 }
+
+/* Texto de crédito no footer */
 .footer .credit {
+    /* Fonte média */
     font-size: 2rem;
+    /* Cor branca */
     color: #fff;
+    /* Fonte leve */
     font-weight: lighter;
+    /* Padding vertical */
     padding: 1.5rem;
 }
+
+/* Cor dourada no texto de crédito */
 .footer .credit span {
     color: var(--main-color);
 }
 
 /* Classe para texto café */
 .cafe {
+    /* Cor branca */
     color: white;
+    /* Fonte um pouco maior */
     font-size: 1.3em;
 }
 
 /* ------------------ MEDIA QUERIES --------------------- */
-/* Ajusta tamanho da fonte em telas médias */
+
+/* Para telas com largura até 991px */
 @media (max-width: 991px) {
+    /* Diminui tamanho da fonte base */
     html {
         font-size: 55%;
     }
+    /* Menor padding no header */
     .header {
         padding: 1.5rem 2rem;
     }
+    /* Menor padding nas seções */
     section {
         padding: 2rem;
     }
 }
 
-/* Ajustes para telas pequenas */
+/* Para telas com largura até 768px */
 @media (max-width: 768px) {
+    /* Exibe o botão de menu mobile */
     #menu-btn {
         display: inline-block;
     }
-    /* Menu escondido fora da tela */
+    /* Navbar mobile escondida fora da tela */
     .header .navbar {
         position: absolute;
-        top: 100%; right: -100%;
+        top: 100%;
+        right: -100%;
         background: #eae4e4;
         width: 30rem;
         height: calc(100vh - 9.5rem);
         transition: right 0.3s ease;
         z-index: 1100;
     }
-    /* Menu aberto */
+    /* Navbar visível quando ativa */
     .header .navbar.active {
         right: 0;
     }
-    /* Links do menu mobile */
+    /* Links no menu mobile */
     .header .navbar a {
         color: var(--black);
         display: block;
@@ -588,27 +1010,30 @@ section {
         padding: .5rem;
         font-size: 2rem;
     }
-    /* Busca mais larga em mobile */
+    /* Formulário de busca mais estreito */
     .header .search-form {
         width: 90%;
         right: 2rem;
     }
-    /* Home centralizado no mobile */
+    /* Ajustes para seção home */
     .home {
         background-position: left;
         justify-content: center;
         text-align: center;
     }
+    /* Título menor */
     .home .content h3 {
         font-size: 4.5rem;
     }
+    /* Parágrafo menor */
     .home .content p {
         font-size: 1.5rem;
     }
 }
 
-/* Ajustes para telas muito pequenas */
+/* Para telas até 450px */
 @media (max-width: 450px) {
+    /* Fonte base ainda menor */
     html {
         font-size: 50%;
     }
