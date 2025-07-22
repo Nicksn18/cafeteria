@@ -142,3 +142,37 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartCount();
 
 });
+
+// Importa o SweetAlert2 se ainda não estiver no HTML
+const script = document.createElement('script');
+script.src = "https://cdn.jsdelivr.net/npm/sweetalert2@11";
+document.head.appendChild(script);
+
+// Ao clicar no botão "Finalizar Pedido"
+document.addEventListener('DOMContentLoaded', () => {
+    const finalizarBtn = document.getElementById('finalizar-pedido-btn');
+
+    finalizarBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Forma de Pagamento',
+            text: 'Escolha como deseja pagar:',
+            icon: 'question',
+            showCancelButton: true,
+            showDenyButton: true,
+            confirmButtonText: 'Pix',
+            denyButtonText: 'Crédito',
+            cancelButtonText: 'Débito'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire('Pagamento via Pix selecionado ✅', '', 'success');
+            } else if (result.isDenied) {
+                Swal.fire('Pagamento com Cartão de Crédito selecionado 💳', '', 'info');
+            } else {
+                Swal.fire('Pagamento com Cartão de Débito selecionado 💳', '', 'info');
+            }
+        });
+    });
+});
+

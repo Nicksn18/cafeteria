@@ -1,373 +1,310 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8"><!-- Define codificação UTF-8 -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"><!-- Compatibilidade com IE -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Responsivo -->
-    <title>Coffee shop</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop</title>
 
     <!-- Font Awesome CDN para ícones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-    <!-- Link para o CSS customizado -->
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7-beta.19/inputmask.min.js"></script>
+    
 </head>
 <body>
     
-<!-- Início do cabeçalho fixo -->
+<!-- Cabeçalho -->
 <header class="header">
-
-    <!-- Logo da cafeteria -->
     <a href="#" class="logo">
-        <img src="img/logo.png" alt="logo">
+        <img src="img/logo.png" alt="Coffee Shop logo">
     </a>
 
-    <!-- Menu de navegação -->
     <nav class="navbar">
-        <a href="#home">Inicio</a>
+        <a href="#home">Início</a>
         <a href="#about">Sobre</a>
-        <a href="#menu">menu</a>
+        <a href="#menu">Menu</a>
         <a href="produtos.html">Produtos</a>
         <a href="#review">Avaliações</a>
         <a href="#contact">Contato</a>
     </nav>
 
-    <!-- Ícones da barra superior: busca, carrinho, menu mobile -->
     <div class="icons">
-        <div class="fas fa-search" id="search-btn"></div><!-- Botão abrir busca -->
-        <div class="fas fa-shopping-cart" id="cart-btn"></div><!-- Botão abrir carrinho -->
-        <div class="fas fa-bars" id="menu-btn"></div><!-- Botão menu hamburguer mobile -->
+        <div class="fas fa-search" id="search-btn" aria-label="Buscar" role="button" tabindex="0"></div>
+        <div class="fas fa-shopping-cart" id="cart-btn" aria-label="Carrinho" role="button" tabindex="0"></div>
+        <div class="fas fa-bars" id="menu-btn" aria-label="Menu móvel" role="button" tabindex="0"></div>
     </div>
 
-    <!-- Formulário de busca oculto por padrão -->
+    <!-- Busca -->
     <div class="search-form">
-        <input type="search" id="search-box" placeholder="search here...">
-        <label for="search-box" class="fas fa-search"></label><!-- Ícone da lupa -->
+        <input type="search" id="search-box" placeholder="Buscar cafés..." aria-label="Buscar produtos">
+        <label for="search-box" class="fas fa-search"></label>
     </div>
 
-    <!-- Container do carrinho de compras, inicialmente escondido -->
+    <!-- Carrinho -->
     <div class="cart-items-container">
-       
+        <!-- Itens inseridos via JS -->
+        <div class="cart-total">
+            Total: <span id="cart-total-value">R$ 0,00</span>
+        </div>
+        <a href="#" class="btn finalizar-btn" id="finalizar-pedido-btn">Finalizar Pedido</a>
     </div>
-
 </header>
-<!-- Fim do cabeçalho -->
 
-<!-- Seção inicial Home -->
+<!-- Home -->
 <section class="home" id="home">
     <div class="content">
-        <h3>"CAFÉ DE QUALIDADE PELA MANHÃ"</h3>
+        <h3>"Café de qualidade pela manhã"</h3>
         <p>O café da manhã é uma das principais refeições do dia.</p>
         <a href="produtos.html" class="btn">Compre agora</a>
     </div>
 </section>
 
-<!-- Seção Sobre -->
+<!-- Sobre -->
 <section class="about" id="about">
-
-    <h1 class="heading"> <span>Sobre nós</span></h1>
-
+    <h1 class="heading"><span>Sobre nós</span></h1>
     <div class="row">
-
-        <!-- Imagem da seção sobre -->
         <div class="image">
-            <img src="img/about-img.jpeg" alt="imagem princial">
+            <img src="img/about-img.jpeg" alt="Ambiente da cafeteria">
         </div>
-
-        <!-- Conteúdo da seção sobre -->
         <div class="content">
             <h3>O que torna nossa cafeteria especial?</h3>
-            <p>Nosso café não é apenas uma bebida – é uma experiência. Fundada há mais de 30 anos por um grupo de amigos apaixonados por café, nossa cafeteria nasceu do desejo de compartilhar sabores autênticos, momentos acolhedores e um ambiente que se sente como lar.</p>
-
-            <p>Desde o início, buscamos os melhores grãos 100% arábica, colhidos de forma sustentável e torrados artesanalmente para garantir frescor e sabor incomparáveis. Cada xícara que servimos carrega uma história de tradição, amizade e dedicação ao ofício.</p>
-
-            <p>Ao longo das décadas, nossa coffee shop se tornou referência em qualidade e atendimento, unindo tradição e inovação para surpreender nossos clientes todos os dias. Oferecemos desde os clássicos expressos até bebidas autorais exclusivas, além de um cardápio cuidadosamente elaborado para harmonizar com nossos cafés.</p>
-
-            <p>Seja para um café rápido, uma tarde de trabalho ou um encontro especial, nossa cafeteria está sempre de portas abertas para você.</p>
+            <p>Nosso café não é apenas uma bebida – é uma experiência...</p>
+            <p>Buscamos os melhores grãos 100% arábica, colhidos de forma sustentável e torrados artesanalmente.</p>
+            <p>Referência em qualidade e atendimento há mais de 30 anos.</p>
+            <p>Estamos sempre de portas abertas para você.</p>
         </div>
-
     </div>
-
 </section>
 
-<!-- Seção Menu -->
+<!-- Menu (itens para adicionar) -->
 <section class="menu" id="menu">
-
-    <h1 class="heading"><span>Menu</span> </h1>
-
+    <h1 class="heading"><span>Menu</span></h1>
     <div class="box-container">
 
-        <!-- Cada box é um item do menu -->
         <div class="box">
-            <img src="img/image.png" width="90px" alt="">
+            <img src="img/image.png" alt="Mocha">
             <h3>Mocha</h3>
-            <p class="cafe">1 dose de café espresso
-                2 colheres de sopa de calda de chocolate (ou chocolate em pó dissolvido)
-                Leite vaporizado
-                Chantilly (opcional, mas comum)
-                Raspas de chocolate ou cacau em pó (opcional para decorar)</p>
-            <div class="price">R$12,00 <span>13,00</span></div>
-            <a href="#" class="btn">adicionar ao carrinho</a>
+            <p class="cafe">Espresso, chocolate, leite vaporizado e chantilly (opcional).</p>
+            <div class="price">R$ 12,00 <span>R$ 13,00</span></div>
+            <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
         </div>
 
         <div class="box">
-            <img src="img/menu-2.png" alt="">
+            <img src="img/menu-2.png" alt="Flat White">
             <h3>Flat White</h3>
-            <p class="cafe">Uma dose dupla de espresso envolvida por leite vaporizado com microespuma aveludada.</p>
-            <div class="price">R$15.99</div>
-            <a href="#" class="btn">adicionar ao carrinho</a>
+            <p class="cafe">Dose dupla de espresso com microespuma cremosa.</p>
+            <div class="price">R$ 15,99</div>
+            <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
         </div>
 
         <div class="box">
-            <img src="img/menu-3.png" alt="">
+            <img src="img/menu-3.png" alt="Latte">
             <h3>Latte</h3>
-            <div class="price">R$17.00</div>
-            <p class="cafe">Preparado com 1 dose de espresso e uma quantidade maior de leite vaporizado.
-                Levemente coberto com espuma de leite.</p>
-            <a href="#" class="btn">adicionar ao carrinho</a>
+            <p class="cafe">Espresso, bastante leite vaporizado e leve espuma.</p>
+            <div class="price">R$ 17,00</div>
+            <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
         </div>
 
         <div class="box">
-            <img src="img/menu-4.png" alt="">
+            <img src="img/menu-4.png" alt="Cappuccino">
             <h3>Cappuccino</h3>
-            <p class="cafe">Feito com 1/3 de espresso, 1/3 de leite vaporizado e 1/3 de espuma de leite.</p>
-            <p class="cafe">Frequentemente servido com um toque de cacau em pó ou canela por cima.</p>
-            <div class="price">R$22.00</div>
-            <a href="#" class="btn">adicionar ao carrinho</a>
+            <p class="cafe">1/3 espresso, 1/3 leite, 1/3 espuma; toque de cacau.</p>
+            <div class="price">R$ 22,00</div>
+            <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
         </div>
 
         <div class="box">
-            <img src="img/latte macchiato.png" width="90px" alt="">
+            <img src="img/latte macchiato.png" alt="Latte Macchiato">
             <h3>Latte Macchiato</h3>
-            <p class="cafe">Leite integral (ou outro tipo, vaporizado)
-            Café espresso (uma dose)
-            Espuma de leite</p>
-            <div class="price">R$8,00 <span>9,99</span></div>
-            <a href="#" class="btn">adicionar ao carrinho</a>
+            <p class="cafe">Leite vaporizado marcado por uma dose de espresso.</p>
+            <div class="price">R$ 8,00 <span>R$ 9,99</span></div>
+            <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
         </div>
 
         <div class="box">
-            <img src="img/Irish2.png" width="90px" alt="">
-            <h3>Irish Coffee</h3> 
-            <p class="cafe">Café forte (geralmente filtrado ou espresso)
-                            Whisky irlandês
-                            Açúcar (ou xarope simples)
-                            Creme de leite fresco levemente batido, por cima (sem misturar)</p>
-            <div class="price">R$9,99 <span>11,00</span></div>
-            <a href="#" class="btn">adicionar ao carrinho</a>
+            <img src="img/Irish2.png" alt="Irish Coffee">
+            <h3>Irish Coffee</h3>
+            <p class="cafe">Café forte, whisky irlandês, açúcar e creme.</p>
+            <div class="price">R$ 9,99 <span>R$ 11,00</span></div>
+            <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
         </div>
 
         <div class="box">
-            <img src="img/iris1.png" width="90px" alt="">
-            <h3>Irish Tradicional</h3> 
-            <p class="cafe">1 dose de uísque irlandês
-            1 colher de chá de açúcar mascavo ou comum
-            Café quente forte
-            Creme de leite fresco (levemente batido, para flutuar por cima)</p>
-            <div class="price">R$ 11,00 <span>15,00</span></div>
-            <a href="#" class="btn">adicionar ao carrinho</a>
+            <img src="img/iris1.png" alt="Irish Tradicional">
+            <h3>Irish Tradicional</h3>
+            <p class="cafe">Whisky, café quente, açúcar mascavo e creme.</p>
+            <div class="price">R$ 11,00 <span>R$ 15,00</span></div>
+            <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
         </div>
         
         <div class="box">
-            <img src="img/Cafe Amercano.png" width="90px" alt="">
-            <h3>Café Americano</h3> 
-            <p class="cafe">1 dose de espresso
-                            Água quente adicionada por cima (deixa o café mais leve e mais longo)
-                            Sem leite (mas pode ser adicionado opcionalmente)</p>
-            <div class="price">R$ 7,00 <span>10,00</span></div>
-            <a href="#" class="btn">adicionar ao carrinho</a>
+            <img src="img/Cafe Amercano.png" alt="Café Americano">
+            <h3>Café Americano</h3>
+            <p class="cafe">Espresso diluído em água quente.</p>
+            <div class="price">R$ 7,00 <span>R$ 10,00</span></div>
+            <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
         </div>
 
     </div>
-
 </section>
 
-<!-- Seção Produtos -->
+<!-- Produtos em destaque -->
 <section class="products" id="products">
-
-    <h1 class="heading"><span>Produtos em destaques</span> </h1>
-
+    <h1 class="heading"><span>Produtos em destaque</span></h1>
     <div class="box-container">
 
         <div class="box">
-            
             <div class="image">
-                <img src="img/product-1.png" alt="">
-                <a href="#" class="btn">Adicionar ao carrinho</a>
+                <img src="img/product-1.png" alt="Café Nicarágua 1Kg">
+                <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
             </div>
             <div class="content">
-                <h3>café Nicarágua 1Kg</h3>
-                <p class="cafe"><strong>Suave e equilibrado, com notas de chocolate, caramelo e frutas cítricas.</strong></p>
-                <p class="cafe">Acidez: Moderada.</p>
+                <h3>Café Nicarágua 1Kg</h3>
+                <p class="cafe"><strong>Notas de chocolate, caramelo e frutas cítricas.</strong></p>
                 <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="price">$124,90 <span>$150,00</span></div>
+                <div class="price">R$ 124,90 <span>R$ 150,00</span></div>
             </div>
         </div>
 
         <div class="box">
-            
             <div class="image">
-                <img src="img/cafepronova.png" alt="">
-                <a href="#" class="btn">Adicionar ao carrinho</a>
+                <img src="img/cafepronova.png" alt="Café Pronova">
+                <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
             </div>
             <div class="content">
-                <h3>café Pronova</h3>
-                <p class="cafe">Sem glúten, Sem ingredientes artificiais, Sem sabores artificiais, Sem cores artificiais, Sem adição de açúcar</p>
+                <h3>Café Pronova</h3>
+                <p class="cafe">Sem glúten e sem aditivos artificiais.</p>
                 <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="price">$144.00 <span>$161.00</span></div>
+                <div class="price">R$ 144,00 <span>R$ 161,00</span></div>
             </div>
         </div>
 
         <div class="box">
-            
             <div class="image">
-                <img src="img/starbucks.png" alt="">
-                <a href="#" class="btn">Adicionar ao carrinho</a>
+                <img src="img/starbucks.png" alt="Café Starbucks">
+                <a href="#" class="btn add-cart-btn">Adicionar ao carrinho</a>
             </div>
             <div class="content">
-                <h3>café Starbucks</h3>
+                <h3>Café Starbucks</h3>
                 <p class="cafe">Suave com notas de chocolate.</p>
                 <div class="stars">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
                     <i class="fas fa-star-half-alt"></i>
                 </div>
-                <div class="price">$169.00 <span>$180.00</span></div>
+                <div class="price">R$ 169,00 <span>R$ 180,00</span></div>
             </div>
         </div>
 
     </div>
-
 </section>
 
-<!-- Seção Avaliações -->
+<!-- Avaliações -->
 <section class="review" id="review">
-
-    <h1 class="heading"><span>Avaliações</span> </h1>
-
+    <h1 class="heading"><span>Avaliações</span></h1>
     <div class="box-container">
-
         <div class="box">
             <img src="img/quote-img.png" alt="" class="quote">
-            <p>"Simplesmente encantado com o ambiente acolhedor e o aroma do café fresco no ar. Uma pausa perfeita no meu dia!"</p>
+            <p>"Ambiente acolhedor e aroma delicioso!"</p>
             <img src="img/pic-1.png" class="user" alt="">
-            <h3>john deo</h3>
+            <h3>John Doe</h3>
             <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
         </div>
-
         <div class="box">
             <img src="img/quote-img.png" alt="" class="quote">
-            <p>"O melhor cappuccino que já tomei! Além disso, os atendentes são super simpáticos e o espaço é muito aconchegante."</p>
+            <p>"O melhor cappuccino que já tomei!"</p>
             <img src="img/pic-2.png" class="user" alt="">
-            <h3>john deo</h3>
+            <h3>Maria</h3>
             <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
         </div>
-        
         <div class="box">
             <img src="img/quote-img.png" alt="" class="quote">
-            <p>"A combinação de cafés especiais e doces artesanais é maravilhosa. Um lugar ideal para relaxar ou trabalhar com tranquilidade."</p>
+            <p>"Cafés especiais e doces artesanais maravilhosos."</p>
             <img src="img/pic-3.png" class="user" alt="">
-            <h3>john deo</h3>
+            <h3>Carlos</h3>
             <div class="stars">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                <i class="fas fa-star"></i><i class="fas fa-star"></i>
                 <i class="fas fa-star-half-alt"></i>
             </div>
         </div>
-
     </div>
-
 </section>
 
-<!-- Seção Contato -->
+<!-- Contato -->
 <section class="contact" id="contact">
-
-    <h1 class="heading"> <span>Contato</span></h1>
-
+    <h1 class="heading"><span>Contato</span></h1>
     <div class="row">
-
-        <!-- Mapa do Google Maps -->
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.4337993276586!2d-34.894185224716495!3d-8.05715568049754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18c19ab484d9%3A0x84ccc148ae0eed47!2sGrau%20T%C3%A9cnico%20-%20Recife%20Boa%20Vista!5e0!3m2!1spt-BR!2sbr!4v1752097619680!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-        <!-- Formulário de contato -->
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3950.4337993276586!2d-34.894185224716495!3d-8.05715568049754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7ab18c19ab484d9%3A0x84ccc148ae0eed47!2sGrau%20T%C3%A9cnico%20-%20Recife%20Boa%20Vista!5e0!3m2!1spt-BR!2sbr!4v1752097619680!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         <form action="">
-            <h3>entre em contato</h3>
+            <h3>Entre em contato</h3>
             <div class="inputBox">
                 <span class="fas fa-user"></span>
-                <input type="text" placeholder="nome">
+                <input type="text" placeholder="Nome">
             </div>
             <div class="inputBox">
                 <span class="fas fa-envelope"></span>
-                <input type="email" placeholder="email">
+                <input type="email" placeholder="Email">
             </div>
+            <!-- Campo de telefone com máscara (profissional) -->
             <div class="inputBox">
-                <span class="fas fa-phone"></span>
-                <input type="number" placeholder="número">
+            <span class="fas fa-phone"></span>
+            <input type="text" id="telefone" placeholder="(81) 91234-5678">
             </div>
-            <input type="submit" value="entre em contato agora" class="btn">
+            <input type="submit" value="Enviar" class="btn">
         </form>
-
     </div>
-
 </section>
 
 <!-- Rodapé -->
 <section class="footer">
-
-    <!-- Redes sociais -->
     <div class="share">
         <a href="https://www.facebook.com/profile.php?id=61577968572282" class="fab fa-facebook-f"></a>
         <a href="https://x.com/Coffeeshop10613" class="fab fa-twitter"></a>
         <a href="https://www.instagram.com/coffee_shopofc/" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-whatsapp"></a>
+        <a href="https://wa.me/5511999999999" class="fab fa-whatsapp"></a>
     </div>
-
-    <!-- Links do rodapé -->
     <div class="links">
-        <a href="#home">Inicio</a>
+        <a href="#home">Início</a>
         <a href="#about">Sobre</a>
-        <a href="#menu">menu</a>
+        <a href="#menu">Menu</a>
         <a href="#products">Produtos</a>
         <a href="#review">Avaliações</a>
         <a href="#contact">Contato</a>
     </div>
-
-    <!-- Créditos -->
-    <div class="credit">criado por <span>INF28-Nicolas-Kawan-Abnadabe-Abnael-Mario-</span> | todos os direitos reservados</div>
-
+    <div class="credit">criado por <span>INF28-Nicolas-Kawan-Abnadabe-Abnael-Mario-Gustavo</span> | todos os direitos reservados</div>
 </section>
 
-<!-- Link para arquivo JavaScript personalizado -->
+<!-- Biblioteca de máscara -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/inputmask/5.0.7/inputmask.min.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    Inputmask({"mask": "(99) 99999-9999"}).mask("#telefone");
+  });
+</script>
+
+
+<!-- JS -->
 <script src="script.js"></script>
 
-</body>
-</html>

@@ -1038,3 +1038,20 @@ section {
         font-size: 50%;
     }
 }
+
+
+/* Estilo atualizado para carrinho preto e letras brancas */
+.cart-items-container {
+    background: #000;
+    color: #fff;
+}
+
+.cart-items-container .cart-item .content h3,
+.cart-items-container .cart-item .content .price,
+.cart-items-container .cart-item .content {
+    color: #fff;
+}
+
+.cart-items-container .cart-item .fa-times {
+    color: #fff;
+}
